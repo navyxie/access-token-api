@@ -19,7 +19,7 @@
     "should": "^7.0.2"
   },
   "dependencies": {
-    "store-ttl": "^1.0.0",
+    "store-ttl": "^2.0.0",
     "async":"^2.0.0",
     "lodash":"^4.12.0"
   },
