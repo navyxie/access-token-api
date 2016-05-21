@@ -146,6 +146,13 @@ describe("Token",function(){
         done(err);
       })
     });
+    it('#webInject()',function(done){
+      var html = '<html><head><title>test</title></head><body id="body"></body></html>';
+      TokenInstance.webInject(html,token,function(err,html){
+        html.should.be.containEql('w.encrypt_api_tokenStr');
+        done(err);
+      })
+    });
     it('timeout',function(done){
       setTimeout(function(){
         TokenInstance.verify(token,function(err,data){
