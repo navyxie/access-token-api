@@ -175,6 +175,15 @@ describe("Token",function(){
         var data = _store[key]
         delete _store[key];
         callback(null,data);
+      },
+      webInject:function(html,token,callback){
+        var htmlEndIndex = html.indexOf('</html>');
+        var tokenScript = '<script>window.' + this.config.webTokenVarName + '=' + token + '</script>';
+        var prevHtml = html.substring(0,htmlEndIndex);
+        var nextHtml = html.substr(htmlEndIndex); 
+        prevHtml += tokenScript;
+        prevHtml += nextHtml;
+        callback(null,prevHtml);
       }
     };
     var TokenInstance = new Token(config);
@@ -226,6 +235,13 @@ describe("Token",function(){
     it('#verify()',function(done){
       TokenInstance.verify(token,function(err,data){
         data.should.be.equal(2);
+        done(err);
+      })
+    });
+    it('#webInject()',function(done){
+      var html = '<html><head><title>test</title></head><body id="body"></body></html>';
+      TokenInstance.webInject(html,token,function(err,html){
+        html.should.be.containEql('window.encrypt_api_tokenStr');
         done(err);
       })
     });
