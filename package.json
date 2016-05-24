@@ -1,5 +1,5 @@
 {
-  "name": "encrypt-api",
+  "name": "access-token-api",
   "version": "0.0.1",
   "description": "encrypt you api",
   "main": "index.js",
