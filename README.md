@@ -18,26 +18,20 @@ var accessTokenApi = require('access-token-api');
 var TokenApi = new Token({
     storeConfig:{
         get:function(key,callback){
-            client.get(key,function(err,reply){
-                callback(err,reply.toString());
+            client.GET(key,function(err,reply){
+                callback(err,reply);
             });
         },
         set:function(key,data,ttl,callback){
-            client.set(key,data,function(err,reply){
-                callback(err,reply.toString());
+            client.PSETEX(key,ttl,data,function(err,reply){
+                callback(err,reply);
             });
-            client.expire(key,ttl);
         },
         remove:function(key,callback){
-            client.del(key,function(err){
+            client.DEL(key,function(err,data){
               callback(err);
-            })
-        },
-        decline:function(key,callback){
-            client.DECR(key,function(err){
-                callback(err);
-            })
-        }    
+            });
+        }
     }
 });
 
@@ -112,3 +106,8 @@ TokenApi.webInject('html','token',function(err,html){
 ```
 
 
+## test
+
+ ```js
+ npm test
+ ```

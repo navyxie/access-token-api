@@ -27,7 +27,6 @@ describe("Token",function(){
     });
     it('#remove()',function(done){
       TokenInstance.remove(token,function(err,data){
-        data.should.be.equal(4);
         done(err);
       });
     });
@@ -119,7 +118,6 @@ describe("Token",function(){
     });
     it('#remove()',function(done){
       TokenInstance.remove(token,function(err,data){
-        data.should.be.equal(4);
         done(err);
       });
     });
@@ -158,8 +156,8 @@ describe("Token",function(){
     it('timeout',function(done){
       setTimeout(function(){
         TokenInstance.verify(token,function(err,data){
-          // should.exists(err);
-          done(err);
+          should.exists(err);
+          done();
         })
       },3000);
     });
@@ -211,7 +209,6 @@ describe("Token",function(){
     });
     it('#remove()',function(done){
       TokenInstance.remove(token,function(err,data){
-        data.should.be.equal(4);
         done(err);
       });
     });
@@ -252,6 +249,92 @@ describe("Token",function(){
         TokenInstance.verify(token,function(err,data){
           should.exists(err);
           done(null);
+        })
+      },3000);
+    });
+  });
+  describe('data in redis',function(){
+    var redis = require("redis"),
+      client = redis.createClient(6379,'localhost');
+    var TokenInstance = new Token({storeConfig:{
+        get:function(key,callback){
+            client.GET(key,function(err,reply){
+                callback(err,reply);
+            });
+        },
+        set:function(key,data,ttl,callback){
+            client.PSETEX(key,ttl,data,function(err,reply){
+                callback(err,reply);
+            });
+        },
+        remove:function(key,callback){
+            client.DEL(key,function(err,data){
+              callback(err);
+            });
+        }
+    }});
+    var token;
+    it("#issue()",function(done){
+      TokenInstance.issue(10,function(err,data){
+        token = data;
+        should.exists(data);
+        done(err);
+      });
+    });
+    it('#verify()',function(done){
+      TokenInstance.verify(token,function(err,data){
+        data.should.be.equal(5);
+        done(err);
+      });
+    });
+    it('#decline()',function(done){
+      TokenInstance.decline(token,function(err,data){
+        data.should.be.equal(4);
+        done(err);
+      });
+    });
+    it('#remove()',function(done){
+      TokenInstance.remove(token,function(err,data){
+        done(err);
+      });
+    });
+    it('#verify()',function(done){
+      TokenInstance.verify(token,function(err,data){
+        should.exists(err);
+        done(null);
+      });
+    });
+    it('#issue()',function(done){
+      TokenInstance.issue(3,3,function(err,data){
+        token = data;
+        should.exists(data);
+        done(err);
+      });
+    });
+    it('#decline()',function(done){
+      TokenInstance.decline(token,function(err,data){
+        data.should.be.equal(2);
+        done(err);
+      });
+    });
+    it('#verify()',function(done){
+      TokenInstance.verify(token,function(err,data){
+        data.should.be.equal(2);
+        done(err);
+      })
+    });
+    it('#webInject()',function(done){
+      var html = '<html><head><title>test</title></head><body id="body"></body></html>';
+      TokenInstance.webInject(html,token,function(err,html){
+        html.should.be.containEql('w.encrypt_api_tokenStr');
+        done(err);
+      })
+    });
+    it('timeout',function(done){
+      setTimeout(function(){
+        TokenInstance.verify(token,function(err,data){
+          should.exists(err);
+          done();
         })
       },3000);
     });
