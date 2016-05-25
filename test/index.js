@@ -13,6 +13,12 @@ describe("Token",function(){
         done(err);
       });
     });
+    it("#issue()",function(done){
+      TokenInstance.issue(function(err,data){
+        should.exists(err);
+        done();
+      });
+    });
     it('#verify()',function(done){
       TokenInstance.verify(token,function(err,data){
         data.should.be.equal(5);
