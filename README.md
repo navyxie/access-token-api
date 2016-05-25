@@ -122,7 +122,7 @@ TokenApi.webInject('html','token',function(err,html){
  npm run cov
  ```
 
- ## code coverage
+## code coverage
  ```html
  =============================== Coverage summary ===============================
  Statements   : 95.7% ( 89/93 )
