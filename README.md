@@ -47,7 +47,7 @@ TokenApi.verify('token',function(err,count){
 });
 ```
 
-**web page get token by window[webTokenVarName] , default to window.encrypt_api_tokenStr**
+**web page can get token by window[webTokenVarName] , default to window.encrypt_api_tokenStr**
 
 
 ## API
