@@ -32,6 +32,10 @@ var TokenApi = new Token({
               callback(err);
             });
         }
+    },
+    webTokenVarName:'encrypt_api_tokenStr',//default to encrypt_api_tokenStr
+    webInject:function(){
+        //if you want to custom you webtoken inject in hmlt , you can do in this function.
     }
 });
 
@@ -42,6 +46,9 @@ TokenApi.verify('token',function(err,count){
     //todo
 });
 ```
+
+**web page can get token by window[webTokenVarName] , default to window.encrypt_api_tokenStr**
+
 
 ## API
 
