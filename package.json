@@ -1,11 +1,11 @@
 {
   "name": "access-token-api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "encrypt you api",
   "main": "index.js",
   "scripts":{
     "test":"npm install && ./node_modules/mocha/bin/_mocha --recursive test/",
-    "cov":"./node_modules/.bin/istanbul cover --report lcovonly ./node_modules/mocha/bin/_mocha  -- --timeout 5000 --recursive test/ -R spec && rm -rf ./coverage"
+    "cov":"npm install && ./node_modules/.bin/istanbul cover --report lcovonly ./node_modules/mocha/bin/_mocha  -- --timeout 5000 --recursive test/ -R spec && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
