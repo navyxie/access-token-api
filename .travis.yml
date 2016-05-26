@@ -14,5 +14,5 @@ script: npm test
 
 after_script: npm run cov
 
-after_success:
+after_success: 
   "curl -L -l https://coveralls.io/repos/github/navyxie/access-token-api/badge.svg?branch=master"
