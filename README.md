@@ -1,5 +1,7 @@
 # access-token-api
 
+[![Build Status via Travis CI](https://travis-ci.org/navyxie/access-token-api.svg?branch=master)](https://travis-ci.org/navyxie/access-token-api)
+
 a simple api access token support count and ttl ， which base on nodejs.
 
 ## install
