@@ -1,5 +1,7 @@
 language: node_js
 
+repo_token: r1wvXhKlmrnpEtULVq4JRYUdWUCXt438x
+
 node_js:  
 
   - 0.10.35
