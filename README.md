@@ -1,6 +1,6 @@
 # access-token-api
 
-[![Build Status via Travis CI](https://travis-ci.org/navyxie/access-token-api.svg?branch=master)](https://travis-ci.org/navyxie/access-token-api)
+[![Build Status via Travis CI](https://travis-ci.org/navyxie/access-token-api.svg?branch=master)](https://travis-ci.org/navyxie/access-token-api) [![Coverage Status](https://coveralls.io/repos/github/navyxie/access-token-api/badge.svg?branch=master)](https://coveralls.io/github/navyxie/access-token-api?branch=master)
 
 a simple api access token support count and ttl ， which base on nodejs.
 
