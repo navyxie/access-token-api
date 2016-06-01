@@ -12,7 +12,34 @@ npm install access-token-api
 
 ## usage
 
+Single Process
+
 ```js
+
+`nodejs`
+
+var accessTokenApi = require('access-token-api');
+var TokenApi = new Token({
+    webTokenVarName:'encrypt_api_tokenStr',//default to encrypt_api_tokenStr
+    webInject:function(){
+        //if you want to custom you webtoken inject in hmlt , you can do in this function.
+    }
+});
+
+`web javascript`
+
+//get the token
+
+window[webTokenVarName]
+```
+
+
+Multi Process
+
+```js
+
+`nodejs`
+
 var redis = require("redis"),
   client = redis.createClient(6379,'localhost');
 var accessTokenApi = require('access-token-api');
