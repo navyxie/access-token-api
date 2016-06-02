@@ -19,7 +19,7 @@ Single Process
 `nodejs`
 
 var accessTokenApi = require('access-token-api');
-var TokenApi = new Token({
+var TokenApi = new accessTokenApi({
     webTokenVarName:'encrypt_api_tokenStr',//default to encrypt_api_tokenStr
     webInject:function(){
         //if you want to custom you webtoken inject in hmlt , you can do in this function.
@@ -44,7 +44,7 @@ var redis = require("redis"),
   client = redis.createClient(6379,'localhost');
 var accessTokenApi = require('access-token-api');
 
-var TokenApi = new Token({
+var TokenApi = new accessTokenApi({
     storeConfig:{
         get:function(key,callback){
             client.GET(key,function(err,reply){
