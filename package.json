@@ -1,6 +1,6 @@
 {
   "name": "access-token-api",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "encrypt you api",
   "main": "index.js",
   "scripts":{

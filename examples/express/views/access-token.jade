@@ -1,0 +1,15 @@
+html
+  head
+    title!= title
+  body
+    h1!= message
+    div 
+        button(id="getData") get data
+        span(id="msg",style="padding:0 10px; color:red;")
+        span you can get data times : 
+        span(id="count") #{accessTokenCount}
+    div
+        a(href="/no-access-token") go to no-access-token page &gt;&gt;
+    script(src="/jquery-2.2.4.min.js",type="text/javascript")
+    script(src="/access-token.js",type="text/javascript")
+        
