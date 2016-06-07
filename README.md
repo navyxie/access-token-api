@@ -100,7 +100,7 @@ TokenApi.verify('token',function(err,count){
 
 <a name="issue" />
 
-issue
+`issue`
 
 issue random token.
 
@@ -112,7 +112,7 @@ TokenApi.issue(10,5,function(err,data){
 
 <a name="pass" />
 
-pass
+`pass`
 
 verify and decline token times, when the token is valid.
 
@@ -124,7 +124,7 @@ TokenApi.pass('token',function(err,data){
 
 <a name="verify" />
 
-verify
+`verify`
 
 verify the token 
 
@@ -136,7 +136,7 @@ TokenApi.verify('token',function(err,data){
 
 <a name="remove" />
 
-remove
+`remove`
 
 remove the token
 
@@ -148,7 +148,7 @@ TokenApi.remove('token',function(err,data){
 
 <a name="decline" />
 
-decline
+`decline`
 
 decline the token times
 
@@ -160,7 +160,7 @@ TokenApi.decline('token',function(err,data){
 
 <a name="webInject" />
 
-webInject
+`webInject`
 
 custom web frontend way to inject token into page
 
