@@ -88,6 +88,8 @@ TokenApi.verify('token',function(err,count){
 
 - [`issue`](#issue)
 
+- [`pass`](#pass)
+
 - [`verify`](#verify)
 
 - [`remove`](#remove)
@@ -100,15 +102,31 @@ TokenApi.verify('token',function(err,count){
 
 issue
 
+issue random token.
+
 ```js
 TokenApi.issue(10,5,function(err,data){
   console.log(err,data);
 })
 ```
 
+<a name="pass" />
+
+pass
+
+verify and decline token times, when the token is valid.
+
+```js
+TokenApi.pass('token',function(err,data){
+  console.log(err,data);//err ,data: {code:0, passed: true, count: 2}, when code is zero and passed is true, token is valid.
+})
+```
+
 <a name="verify" />
 
 verify
+
+verify the token 
 
 ```js
 TokenApi.verify('token',function(err,data){
@@ -120,6 +138,8 @@ TokenApi.verify('token',function(err,data){
 
 remove
 
+remove the token
+
 ```js
 TokenApi.remove('token',function(err,data){
   console.log(err,data);
@@ -130,6 +150,8 @@ TokenApi.remove('token',function(err,data){
 
 decline
 
+decline the token times
+
 ```js
 TokenApi.decline('token',function(err,data){
   console.log(err);
@@ -139,6 +161,8 @@ TokenApi.decline('token',function(err,data){
 <a name="webInject" />
 
 webInject
+
+custom web frontend way to inject token into page
 
 ```js
 TokenApi.webInject('html','token',function(err,html){
