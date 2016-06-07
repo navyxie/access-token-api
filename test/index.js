@@ -122,9 +122,25 @@ describe("Token",function(){
         done(err);
       });
     });
+    it('#pass() ok',function(done){
+      TokenInstance.pass(token,function(err,data){
+        should.not.exists(err);
+        data.code.should.be.equal(0);
+        data.passed.should.be.true();
+        data.count.should.be.equal(3);
+        done(err);
+      });
+    });
     it('#remove()',function(done){
       TokenInstance.remove(token,function(err,data){
         done(err);
+      });
+    });
+    it('#pass() not ok',function(done){
+      TokenInstance.pass(token,function(err,data){
+        should.exists(err);
+        data.code.should.be.equal(-1);
+        done(null);
       });
     });
     it('#verify()',function(done){
@@ -328,6 +344,33 @@ describe("Token",function(){
         data.should.be.equal(2);
         done(err);
       })
+    });
+    it('#pass()',function(done){
+      TokenInstance.pass(token,function(err,data){
+        should.not.exists(err);
+        data.code.should.be.equal(0);
+        data.count.should.be.equal(1);
+        data.passed.should.be.true();
+        done(err);
+      });
+    });
+    it('#pass()',function(done){
+      TokenInstance.pass(token,function(err,data){
+        should.not.exists(err);
+        data.code.should.be.equal(0);
+        data.count.should.be.equal(0);
+        data.passed.should.be.true();
+        done(err);
+      });
+    });
+    it('#pass() not ok',function(done){
+      TokenInstance.pass(token,function(err,data){
+        should.not.exists(err);
+        data.code.should.be.equal(1);
+        data.count.should.be.equal(0);
+        data.passed.should.be.false();
+        done(err);
+      });
     });
     it('#webInject()',function(done){
       var html = '<html><head><title>test</title></head><body id="body"></body></html>';
