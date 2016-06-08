@@ -1,6 +1,6 @@
 {
   "name": "access-token-api",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "encrypt you api",
   "main": "index.js",
   "scripts":{
@@ -23,7 +23,7 @@
     "coveralls": "2.11.9"
   },
   "dependencies": {
-    "store-ttl": "^3.2.0",
+    "store-ttl": "^3.2.3",
     "lodash":"^4.12.0"
   },
   "author": {
