@@ -175,6 +175,14 @@ describe("Token",function(){
         done(err);
       })
     });
+    it('#webInject() error',function(done){
+      var html = '<html><head><title>test</title></head><body id="body"></body></html>';
+      TokenInstance.webInject(123,token,function(err,html){
+        should.exists(err);
+        html.should.be.equal(123);
+        done(null);
+      })
+    });
     it('timeout',function(done){
       setTimeout(function(){
         TokenInstance.verify(token,function(err,data){
