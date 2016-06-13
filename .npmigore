@@ -3,3 +3,4 @@ coverage
 examples/node_modules
 examples/express/node_modules
 examples/sails/node_modules
+examples/static-server/node_modules

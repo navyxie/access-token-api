@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>static file html</title>
+        <style type="text/css">
+            body{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <p>this is static file index.html</p>
+        <div><button id="getToken">get token</button></div>
+        <script type="text/javascript">
+            document.getElementById('getToken').onclick = function(){
+                alert(window.encrypt_api_tokenStr);
+            }
+        </script>
+    </body>
+</html>
