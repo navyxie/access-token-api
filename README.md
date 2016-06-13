@@ -8,6 +8,7 @@ a simple api access token support count and ttl, which base on nodejs.
 
 - [express](./examples/express)
 - [sails](./examples/sails)
+- [static-server](./examples/static-server)
 
 ## install
 
