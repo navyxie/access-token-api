@@ -105,6 +105,12 @@ TokenApi.verify('token',function(err,count){
 issue random token.
 
 ```js
+/**
+ * [issuse token]
+ * @param  {[number]}   [token ttl, default unit is second]
+ * @param  {[number]}   [token avalid count]
+ * @return {[string]}         [return token]
+ */
 TokenApi.issue(10,5,function(err,data){
   console.log(err,data);
 })
