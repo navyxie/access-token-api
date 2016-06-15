@@ -91,6 +91,7 @@ TokenApi.verify('token',function(err,count){
 ```
 
 *storeConfig more params's config please to see [`store-ttl`](https://github.com/navyxie/store-ttl)*
+
 **web page can get token by window[webTokenVarName] , default to window.encrypt_api_tokenStr**
 
 
