@@ -58,7 +58,7 @@ var redis = require("redis"),
 var accessTokenApi = require('access-token-api');
 
 var TokenApi = new accessTokenApi({
-    //store token in database(provide get , set, remove function) , more params's config please to see [`store-ttl`](https://github.com/navyxie/store-ttl)
+    //store token in database(provide get , set, remove function)
     storeConfig:{
         get:function(key,callback){
             client.GET(key,function(err,reply){
@@ -90,6 +90,7 @@ TokenApi.verify('token',function(err,count){
 });
 ```
 
+*storeConfig more params's config please to see [`store-ttl`](https://github.com/navyxie/store-ttl)*
 **web page can get token by window[webTokenVarName] , default to window.encrypt_api_tokenStr**
 
 
