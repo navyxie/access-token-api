@@ -1,6 +1,6 @@
 # access-token-api
 
-[![Build Status via Travis CI](https://travis-ci.org/navyxie/access-token-api.svg?branch=master)](https://travis-ci.org/navyxie/access-token-api) [![Coverage Status](https://coveralls.io/repos/github/navyxie/access-token-api/badge.svg?branch=master)](https://coveralls.io/github/navyxie/access-token-api?branch=master)
+[![Build Status via Travis CI](https://travis-ci.org/navyxie/access-token-api.svg?branch=master)](https://travis-ci.org/navyxie/access-token-api) [![Coverage Status](https://coveralls.io/repos/github/navyxie/access-token-api/badge.svg?branch=master)](https://coveralls.io/github/navyxie/access-token-api?branch=master) [![NPM version](https://badge.fury.io/js/access-token-api.png)](http://badge.fury.io/js/access-token-api)
 
 A simple api access token support count and ttl,which base on nodejs. It can protect your api,prevent CSRF attacks, api called count with ttl.
 
