@@ -27,8 +27,15 @@ Single Process
 var accessTokenApi = require('access-token-api');
 var TokenApi = new accessTokenApi({
     webTokenVarName:'encrypt_api_tokenStr',//default to encrypt_api_tokenStr
-    webInject:function(){
-        //if you want to custom you webtoken inject in hmlt , you can do in this function.
+    webInject:function(html,token,callback){
+        //if you want to custom you webtoken inject in hmlt , you can do in this function. example:
+        var htmlEndIndex = html.indexOf('</html>');
+        var tokenScript = '<script>window.' + this.config.webTokenVarName + '=' + token + '</script>';
+        var prevHtml = html.substring(0, htmlEndIndex);
+        var nextHtml = html.substr(htmlEndIndex);
+        prevHtml += tokenScript;
+        prevHtml += nextHtml;
+        callback(null, prevHtml);
     }
 });
 
@@ -51,6 +58,7 @@ var redis = require("redis"),
 var accessTokenApi = require('access-token-api');
 
 var TokenApi = new accessTokenApi({
+    //store token in database(provide get , set, remove function) , more params's config please to see [`store-ttl`](https://github.com/navyxie/store-ttl)
     storeConfig:{
         get:function(key,callback){
             client.GET(key,function(err,reply){
