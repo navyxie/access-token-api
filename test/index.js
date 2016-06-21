@@ -7,6 +7,31 @@ describe("Token", function() {
     var TokenInstance = new Token();
     var token;
     it("#issue()", function(done) {
+      TokenInstance.issue(10, 2, function(err, data) {
+        should.exists(data);
+        done(err);
+      });
+    });
+    it("#issue()", function(done) {
+      TokenInstance.issue(10, '2', function(err, data) {
+        data.should.be.equal('2');
+        done(err);
+      });
+    });
+    it("#issue()", function(done) {
+      TokenInstance.issue(10, 2, 'givenToken', function(err, data) {
+        data.should.be.equal('givenToken');
+        done(err);
+      });
+    });
+    it("#issue()", function() {
+      try {
+        TokenInstance.issue(10, 2, 'givenToken')
+      }catch(e){
+        should.exists(e);
+      }
+    });
+    it("#issue()", function(done) {
       TokenInstance.issue(10, function(err, data) {
         token = data;
         should.exists(data);

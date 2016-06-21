@@ -125,6 +125,11 @@ issue random token.
 TokenApi.issue(10,5,function(err,data){
   console.log(err,data);
 })
+
+//issue given token
+TokenApi.issue(10,5,'givenToken',function(err,data){
+  console.log(err,data);//data is equal 'givenToken'
+})
 ```
 
 <a name="pass" />
@@ -195,14 +200,4 @@ TokenApi.webInject('html','token',function(err,html){
  npm test
  //coverage
  npm run cov
- ```
-
-## code coverage
- ```html
- =============================== Coverage summary ===============================
- Statements   : 95.7% ( 89/93 )
- Branches     : 80.95% ( 34/42 )
- Functions    : 100% ( 17/17 )
- Lines        : 95.7% ( 89/93 )
- ================================================================================
  ```
