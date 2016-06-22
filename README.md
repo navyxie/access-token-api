@@ -226,10 +226,10 @@ TokenApi.webInject('html','token',function(err,html){
  npm run cov
  ```
 
- ## publish log
+## publish log
 
 
- - 0.1.1
+ - 0.2.0
   add api limit , which one key can call some times with ttl.
 
  - 0.1.0
