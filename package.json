@@ -1,6 +1,6 @@
 {
   "name": "access-token-api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "encrypt you api",
   "main": "index.js",
   "scripts":{
@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "store-ttl": "^3.2.3",
-    "lodash":"^4.12.0"
+    "lodash": "^4.12.0",
+    "async": "^1.5.2"
   },
   "author": {
     "name": "navyxie"

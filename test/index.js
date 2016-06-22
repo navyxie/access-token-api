@@ -1,6 +1,7 @@
 var should = require('should');
 var Token = require('../lib/index');
 var _store = {};
+var async = require('async');
 describe("Token", function() {
   this.timeout(5000);
   describe("data save in memory", function() {
@@ -94,6 +95,40 @@ describe("Token", function() {
         })
       }, 3000);
     });
+    it('limit',function(done){
+      TokenInstance.limit(20, function(err) {
+        should.exists(err);
+        done(null);
+      })
+    });
+    it('limit',function(done){
+      var firstReturn,sencondReturn,thirdReturn;
+      async.waterfall([
+          function(cb){
+              TokenInstance.limit('test-limit', 5, 1, function(err) {
+                  firstReturn = err;
+                  cb(err);
+              })
+          },
+          function(cb){
+              TokenInstance.limit('test-limit', 5, 1, function(err) {
+                  sencondReturn = err;
+                  cb(err);
+              })
+          },
+          function(cb){
+              TokenInstance.limit('test-limit', 5, 1, function(err) {
+                  thirdReturn = err;
+                  cb(null);
+              })
+          }
+      ],function(err){
+          should.not.exists(firstReturn);
+          should.not.exists(sencondReturn);
+          should.exists(thirdReturn);
+          done(err);
+      });
+    })
   });
   describe('data in config with decline function', function() {
     var config = {

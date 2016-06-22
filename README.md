@@ -99,6 +99,8 @@ TokenApi.verify('token',function(err,count){
 
 - [`issue`](#issue)
 
+- [`limit`](#limit)
+
 - [`pass`](#pass)
 
 - [`verify`](#verify)
@@ -129,6 +131,28 @@ TokenApi.issue(10,5,function(err,data){
 //issue given token
 TokenApi.issue(10,5,'givenToken',function(err,data){
   console.log(err,data);//data is equal 'givenToken'
+})
+```
+
+<a name="limit" />
+
+`limit`
+
+limit function call times with ttl.
+
+```js
+/**
+ * [limit function call some time]
+ * @param  {[number]}   [functionkey ttl, default unit is second]
+ * @param  {[number]}   [function avalid count]
+ * @return {[string]}         [return err]
+ */
+
+// apiname can call 5 times in 10 senconds
+TokenApi.limit('apiname', 10, 5,function(err){
+  if(!err){
+    //todo
+  }
 })
 ```
 
@@ -201,3 +225,12 @@ TokenApi.webInject('html','token',function(err,html){
  //coverage
  npm run cov
  ```
+
+ ## publish log
+
+
+ - 0.1.1
+  add api limit , which one key can call some times with ttl.
+
+ - 0.1.0
+  issuse api support issue given token.
