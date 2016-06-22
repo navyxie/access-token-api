@@ -226,7 +226,7 @@ TokenApi.webInject('html','token',function(err,html){
  npm run cov
  ```
 
- ## publish log
+## publish log
 
 
  - 0.1.1
