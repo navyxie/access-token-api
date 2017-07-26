@@ -1,11 +1,11 @@
 {
   "name": "access-token-api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "encrypt you api",
   "main": "index.js",
-  "scripts":{
-    "test":"npm install && ./node_modules/mocha/bin/_mocha --recursive test/",
-    "cov":"npm install && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  "scripts": {
+    "test": "npm install && ./node_modules/mocha/bin/_mocha --recursive test/",
+    "cov": "npm install && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,10 @@
     "coveralls": "2.11.9"
   },
   "dependencies": {
-    "store-ttl": "^3.2.3",
+    "async": "^1.5.2",
+    "bluebird": "^3.4.1",
     "lodash": "^4.12.0",
-    "async": "^1.5.2"
+    "store-ttl": "^3.2.3"
   },
   "author": {
     "name": "navyxie"

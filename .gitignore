@@ -5,3 +5,4 @@ examples/express/node_modules
 examples/sails/node_modules
 examples/static-server/node_modules
 npm-debug.log
+dump.rdb

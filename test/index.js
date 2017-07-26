@@ -193,6 +193,20 @@ describe("Token", function() {
         done(err);
       });
     });
+    it('#passPromise() ok', function(done) {
+      TokenInstance.passPromise(token).then(function(data) {
+        data.code.should.be.equal(0);
+        data.passed.should.be.true();
+        data.count.should.be.equal(2);
+        done();
+      })
+    });
+    it('#passPromise() not ok', function(done) {
+      TokenInstance.passPromise(token + 1).catch(function(err) {
+        should.exists(err);
+        done();
+      })
+    });
     it('#remove()', function(done) {
       TokenInstance.remove(token, function(err, data) {
         done(err);
@@ -241,7 +255,6 @@ describe("Token", function() {
       var html = '<html><head><title>test</title></head><body id="body"></body></html>';
       TokenInstance.webInject(123, token, function(err, html) {
         should.exists(err);
-        html.should.be.equal(123);
         done(null);
       })
     });

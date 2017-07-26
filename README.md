@@ -103,6 +103,8 @@ TokenApi.verify('token',function(err,count){
 
 - [`pass`](#pass)
 
+- [`passPromise`](#passPromise)
+
 - [`verify`](#verify)
 
 - [`remove`](#remove)
@@ -168,6 +170,20 @@ TokenApi.pass('token',function(err,data){
 })
 ```
 
+<a name="passPromise" />
+
+`passPromise`
+
+verify and decline token times, when the token is valid.
+
+```js
+TokenApi.passPromise('token').then(function(data) {
+  
+}).catch(function (err) {
+  
+})
+```
+
 <a name="verify" />
 
 `verify`
@@ -228,6 +244,8 @@ TokenApi.webInject('html','token',function(err,html){
 
 ## publish log
 
+ - 0.2.1
+  add api passPromise , other api support promise.
 
  - 0.2.0
   add api limit , which one key can call some times with ttl.
