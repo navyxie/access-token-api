@@ -237,7 +237,8 @@ TokenApi.webInject('html','token',function(err,html){
 
  ```js
  //test
- npm test
+ 1. redis-server
+ 2. npm test
  //coverage
  npm run cov
  ```
